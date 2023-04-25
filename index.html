@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Pi-3</title>
+</head>
+<body>
+    <header>
+        <div class="menu-geral">
+          <h3 class="titleMenu" href="#inicio">Projeto Interdisciplinar</h3>
+        </div>
+    </header>
+
+    <main>
+      <section>
+          <div class="inicio" id="inicio">
+              <h1 id="apresenta" class="titleInicial">
+                Olá, bem vindo(a) ao nosso projeto!
+              </h1>
+              <button class="button1"><a class="botao" href="#alimentos">Ver projeto</a></button>
+              <p class="apresentacao"><a><b class="titleApresentacao">Projeto Interdisciplinar III</b></a><br>
+                <br>
+                <a class="desenvolvido">
+                  Desenvolvido pelos alunos:<br>
+                </a>
+                <a class="nomes">
+                  - Alessandro Martins<br>
+                </a>
+                <a class="nomes">                    
+                  - Lucas<br>
+                </a>
+                <a class="nomes">
+                  - Hiago<br>
+                </a>
+                <a class="nomes">
+                  - Jessica Rangel<br>
+                </a>
+                <a class="nomes">
+                  - Matheus Matos<br>
+                </a>
+              </p>
+          </div>
+      </section>
+      <section class="alimentos" id="alimentos">
+          <h1 class="titleAlimentos">Alimentos</h1>
+          <div class="alimento1">
+              <h2 class="nome">Milho</h2>
+              <h4 class="temperatura">Temperatura: 85°C</h4>
+              <h4 class="tempo">Tempo: 15-20 min</h4>
+              <img class="img" src="./img/milho.jfif" />
+              <button class="button">Ver</button>
+          </div>
+          <div class="alimento2">
+              <h2 class="nome">Brócolis</h2>
+              <h4 class="temperatura">Temperatura: 85°C</h4>
+              <h4 class="tempo">Tempo: 15-20 min</h4>
+              <img class="img" src="./img/brocolis.jfif" />
+              <button class="button">Ver</button>
+          </div>
+          <div class="alimento3">
+              <h2 class="nome">Abóbora</h2>
+              <h4 class="temperatura">Temperatura: 85°C</h4>
+              <h4 class="tempo">Tempo: 30 min</h4>
+              <img class="img" src="./img/abobora.jfif" />
+              <button class="button">Ver</button>
+          </div>
+          <div class="alimento4">
+              <h2 class="nome">Pêssego</h2>
+              <h4 class="temperatura">Temperatura: 85°C</h4>
+              <h4 class="tempo">Tempo: 15-20 min</h4>
+              <img class="img" src="./img/pessego.jfif" />
+              <button class="button">Ver</button>
+          </div>
+      </section>
+      <section class="grafico">
+          <div class="telaGraficos">
+              <div class="graficos">
+                <div>
+                  <h1 class="titleGrafico">Gráfico - Temperatura</h1>
+                  <canvas id="myChart"></canvas>
+                </div>
+              </div>
+          </div>
+            
+          <script>
+            const ctx = document.getElementById('myChart');
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['10 min', '20 min', '30 min', '40 min', '50 min', '60 min'],
+                datasets: [{
+                  label: ['Temperatura'], 
+                  data: [80, 82, 80, 85, 80, 83],
+                  borderWidth: 5,
+                  borderColor: 'rgb(80, 80, 255)',
+                  backgroundColor: 'rgb(80, 80, 255)'
+                }]
+              },
+              options: {
+                plugins:{
+                  legend:{
+                    labels: {
+                      color: '#black'
+                    }
+                  }
+                },
+                scales: {
+                  x:{
+                    ticks:{
+                      color: '#black'
+                    },
+                    grid:{
+                      color: '#black'
+                    },
+                  },
+                  y: {
+                    ticks:{
+                      color:'#black'
+                    },
+                    grid:{
+                      color: '#black'
+                    },
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+          <div class="descricaoGrafico">
+            <h2>Descrição do gráfico</h2>
+            <h3>O gráfico acima fornece o grau de temperatura da água e o tempo que um determinado alimento será cozinhado. <br>
+              <br>
+              Ao clicar no botão "Ver" de cada alimento, o gráfico exibirá a temperatura em tempo real e o tempo determinado para o cozimento. 
+            </h3>
+          </div>
+      </section>
+    </main> 
+    <footer class="rodape">
+      <div class="direitos">
+        <p class="creditos">@ 2023 Projeto Interdisciplinar | Faculdade UCL</p>
+      </div>
+    </footer>
+</body>
+</html>
