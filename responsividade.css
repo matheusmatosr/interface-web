@@ -1,34 +1,126 @@
-@media screen and (max-width:510) {
-    
-    .menu-geral{
-        max-width: 510px;
-    }
+*{
+    background-color: rgb(175, 174, 173);
+}
+
+header{
+    padding: 2px;
+    background-color: var(--corheader);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    height: 60px;
+    background-color: lightslategray;
+    margin-top: -8px;
+    margin-left: -10px;
+}
+
+.titleMenu{
+    background-color: lightslategray;
+    color: white;
+    margin-left: 50px;
+}
+
+.menu-geral{
+    width: 100%;
+    max-width: 1150px;
+    justify-content: space-between;
+    margin: auto;
+    background-color: lightslategray;
+    margin-top: 0px;
+}  
+
+@media (max-width: 768px) {
+
     .inicio {
-        padding: 120px 0px 50px 30px;
-        width: 500px;
-        height: 500px;
-        justify-content: left;
-        margin-left: 50px;
-        margin-top: 60px;
-        width: 510px;
+        width: 100%;
+        height: auto;
+        padding: 77px 10px 0 10px;
+        margin-left: 0px;
     }
+    
+    .inicio h1 {
+        font-size:30px;
+    }
+    
+    .titleInicial{
+        margin-left: 10px;
+        margin-top: -30px;
+    }
+    
     .apresentacao{
-        margin-right: 0px;
-        margin-top: 50px;
-        margin-left: 0px;
+        margin-top: 30px;
+        margin-right: 10px;
     }
+    
     .titleApresentacao{
-        margin-left: 0px;
+        font-size: 30px;
     }
-    .grafico{
-        margin-top: 1550px;
-        justify-content:left;
+    
+    .botao {
+        margin-top: 25px;
+        font-size: 15px;         
+        background-color: rgb(118, 95, 95);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+    }
+    
+    .button1{
+        width: 180px;
+        height: 45px;
+        background-color: rgb(118, 95, 95);
+        border: 1px solid #fff;
+        border-radius: 20px;
+        margin-left: -180px;
+        display: inline;
+    }
+    
+    .button{
+        width: 80px;
+        height: 30px;
+        background-color: rgb(40, 5, 122);
+        color: rgb(255, 255, 255);
+        border-radius: 8px;
+        margin-right: 10px;
+        margin-top: -75px;
+        display: inline-block;
+        float: right;
+    }
+    
+    .img{
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+        margin-top: -110px;
+        float: right;
+    }
+    
+    .nome{
         margin-left: 10px;
     }
-    .rodape{
-        width: 510px;
-        margin-left: 0px;
-        margin-bottom: 0px;
+    
+    .tempo{
+        margin-top: -15px;
+        margin-left: 10px;
     }
-
+    
+    .temperatura{
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+    
+    .alimentos{
+        margin-top: 70px;
+    }
+    
+    .alimento1, .alimento2, .alimento3, .alimento4 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border: 2px solid black;
+        border-radius: 20px;
+        background-color: white;
+    }
 }
