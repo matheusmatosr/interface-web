@@ -62,10 +62,10 @@ header{
 }
 .desenvolvido{
     background-color: rgb(120, 116, 116); 
-    margin-left: 15px;
+    margin-left: -80px;
 }
 .nomes{
-    margin-left: 35px; 
+    margin-left: -50px; 
     background-color: rgb(120, 116, 116);
 }
 .botao {

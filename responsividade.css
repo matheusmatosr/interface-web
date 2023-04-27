@@ -6,11 +6,9 @@
 
     *{
         max-width: 400px;
-
     }
     .menu-geral{
-        width: 400px;
-        max-width: 400px;
+        width: 300px;
         justify-content: space-between;
         margin-top: 0px;
     }  
@@ -32,18 +30,27 @@
     }
     
     .apresentacao{
-        margin-top: 200px;
+        margin-top: 290px;
         margin-right: 70px;
-        margin-left: 0px;
-    }
+        margin-left: -10px;
     
+    }
+    .desenvolvido{
+        margin-left: 5px;
+        width: 0px;
+    }
+    .nomes{
+        margin-left: 5px;
+    }
     .titleApresentacao{
         font-size: 30px;
-        margin-left: 0px;
+        margin-left: 20px;
         margin-top: 0px;
         margin-bottom: 0px;
     }
-    
+    .ajusteMob{
+        margin-left: -150px;
+    }
     .botao {
         margin-top: 55px;
         font-size: 15px;         
@@ -60,6 +67,7 @@
         border: 1px solid #fff;
         border-radius: 20px;
         margin-left: -300px;
+        margin-bottom: 25px;
         display: inline;
     }
     
