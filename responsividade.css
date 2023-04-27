@@ -2,24 +2,29 @@
     background-color: rgb(175, 174, 173);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 510px) {
 
     *{
-        max-width: 400px;
+        max-width: 411px;
     }
     .menu-geral{
-        width: 300px;
+        max-width: 500px;
+        width: 500px;
         justify-content: space-between;
         margin-top: 0px;
+        margin-left: 0px;
+        padding-left: 0px;
     }  
+    .titleMenu{
+
+    }
     .titleInicial{
-        margin-left: 10px;
-        margin-bottom: 55px;
-        margin-left: -40px;
+        margin-bottom: 95px;
+        margin-left: -20px;
     }
 
     .inicio {
-        width: 500px;
+        width: 312px;
         height: 500px;
         padding: auto;
         margin-left: -8px;
@@ -36,11 +41,10 @@
     
     }
     .desenvolvido{
-        margin-left: 5px;
-        width: 0px;
+        margin-left: 35px;
     }
     .nomes{
-        margin-left: 5px;
+        margin-left: 4px;
     }
     .titleApresentacao{
         font-size: 30px;
@@ -66,8 +70,8 @@
         background-color: rgb(118, 95, 95);
         border: 1px solid #fff;
         border-radius: 20px;
-        margin-left: -300px;
-        margin-bottom: 25px;
+        margin-left: -220px;
+        margin-bottom: 85px;
         display: inline;
     }
     
@@ -109,7 +113,7 @@
         margin-bottom: 30px;
         width: 370px;
         border: 2px solid black;
-        margin-left: 0px;
+        margin-left: 12px;
         border-radius: 5px;
         text-align: center;
     }
@@ -120,7 +124,7 @@
         padding-bottom: 0px;
     }
     
-    .alimento1, .alimento2, .alimento3, .alimento4 {
+    .alimento1, .alimento2, .alimento3 {
         width: 100%;
         height: auto;
         margin: 0 auto;
@@ -131,6 +135,14 @@
         border-radius: 20px;
         background-color: white;
     }
+
+    .alimento4{
+        width: 100%;
+        height: auto;
+        margin-bottom: -51500px;
+        margin: 0 auto;
+        margin-top: 25px;
+    } 
 
     .titleGrafico{
         margin-bottom: 30px;
@@ -143,6 +155,7 @@
         float: right;
         margin-top: 0px;
         margin-right: 0px;
+        margin-left: 20px;
         margin-bottom: 0px;
     }
     .scriptGrafico{
