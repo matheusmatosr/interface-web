@@ -1,0 +1,28 @@
+@media screen and (max-width:510) {
+    
+    .inicio {
+        padding: 120px 0px 50px 30px;
+        justify-content: left;
+        margin-left: 50px;
+        margin-top: 60px;
+        width: 510px;
+    }
+    .apresentacao{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .titleApresentacao{
+        margin-left: 0px;
+    }
+    .grafico{
+        margin-top: 250px;
+        justify-content:left;
+        margin-left: 20px;
+    }
+    .rodape{
+        width: 510px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+    }
+
+}
