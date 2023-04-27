@@ -1,7 +1,12 @@
 @media screen and (max-width:510) {
     
+    .menu-geral{
+        max-width: 510px;
+    }
     .inicio {
         padding: 120px 0px 50px 30px;
+        width: 500px;
+        height: 500px;
         justify-content: left;
         margin-left: 50px;
         margin-top: 60px;
@@ -9,15 +14,16 @@
     }
     .apresentacao{
         margin-right: 0px;
+        margin-top: 50px;
         margin-left: 0px;
     }
     .titleApresentacao{
         margin-left: 0px;
     }
     .grafico{
-        margin-top: 250px;
+        margin-top: 1550px;
         justify-content:left;
-        margin-left: 20px;
+        margin-left: 10px;
     }
     .rodape{
         width: 510px;
