@@ -8,7 +8,6 @@ import requests
 from flask import Flask, jsonify
 import json 
 
-
 cmd = ['python', 'site.py']
 
 os.system('modprobe w1-gpio')
@@ -33,8 +32,6 @@ def read_rom1():
     g = open(name_file1,'r')
     return g.readline()
 
-
- 
 def read_temp_raw():
     f = open(device_file, 'r')
     lines = f.readlines()
@@ -58,8 +55,8 @@ def read_temp():
         temp_c = float(temp_string) / 1000.0
         temp_f = temp_c * 9.0 / 5.0 + 32.0
 
-        return temp_c, temp_f
-
+        return temp_c
+    
 def read_temp1():
     lines1 = read_temp_raw1()
     while lines1[0].strip()[-3:] != 'YES':
@@ -71,18 +68,18 @@ def read_temp1():
         temp_c1 = float(temp_string1) / 1000.0
         temp_f1 = temp_c1 * 9.0 / 5.0 + 32.0
         
-        return temp_c1, temp_f1
+        return temp_c1 
 
 app = Flask("script")
-@app.route('/api/dados')
+@app.route('/dados')
 
 def get_dados(): 
     dados = {}
-    c1 = read_temp()
-    c2 = read_temp1()
+    temp_c = read_temp()
+    temp_c1 = read_temp1()
 
-    dados['temperatura_1'] = c1
-    dados['temperatura_2'] = c2
+    dados['temperatura_1'] = temp_c
+    dados['temperatura_2'] = temp_c1
 
     return jsonify(dados)
 

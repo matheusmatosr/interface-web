@@ -45,6 +45,7 @@
               </p>
           </div>
       </section>
+      
       <section class="alimentos" id="alimentos">
           <h1 class="titleAlimentos">Alimentos</h1>
           <div class="alimento1">
@@ -85,56 +86,57 @@
                 </div>
               </div>
           </div>
-            
+
           <script class="scriptGrafico">
-            fetch('/api/dados')
+            fetch('/dados')
               .then(response => response.json())
               .then(data => {
                 console.log(data);
-              });
+                const temperatura = [data.temperatura_1, data.temperatura_2];
 
-            const ctx = document.getElementById('myChart');
-            new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: ['10 min', '20 min', '30 min', '40 min', '50 min', '60 min'],
-                datasets: [{
-                  label: ['Temperatura'], 
-                  data: [80, 82, 80, 85, 80, 83],
-                  borderWidth: 5,
-                  borderColor: 'rgb(80, 80, 255)',
-                  backgroundColor: 'rgb(80, 80, 255)'
-                }]
-              },
-              options: {
-                plugins:{
-                  legend:{
-                    labels: {
-                      color: '#black'
+                const ctx = document.getElementById('myChart');
+                new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                    labels: ['10 min', '20 min', '30 min', '40 min', '50 min', '60 min'],
+                    datasets: [{
+                      label: ['Temperatura'], 
+                      data: temperatura,
+                      borderWidth: 5,
+                      borderColor: 'rgb(80, 80, 255)',
+                      backgroundColor: 'rgb(80, 80, 255)'
+                    }]
+                  },
+                  options: {
+                    plugins:{
+                      legend:{
+                        labels: {
+                          color: '#black'
+                        }
+                      }
+                    },
+                    scales: {
+                      x:{
+                        ticks:{
+                          color: '#black'
+                        },
+                        grid:{
+                          color: '#black'
+                        },
+                      },
+                      y: {
+                        ticks:{
+                          color:'#black'
+                        },
+                        grid:{
+                          color: '#black'
+                        },
+                        beginAtZero: true
+                      }
                     }
                   }
-                },
-                scales: {
-                  x:{
-                    ticks:{
-                      color: '#black'
-                    },
-                    grid:{
-                      color: '#black'
-                    },
-                  },
-                  y: {
-                    ticks:{
-                      color:'#black'
-                    },
-                    grid:{
-                      color: '#black'
-                    },
-                    beginAtZero: true
-                  }
-                }
-              }
-            });
+                });
+              });
           </script>
           <div class="descricaoGrafico">
             <h2>Descrição do gráfico</h2>
