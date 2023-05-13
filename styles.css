@@ -253,3 +253,177 @@ header{
     margin-right: 15px;
     text-align: justify;
 }
+
+*{
+    background-color: rgb(175, 174, 173);
+}
+
+@media (max-width: 510px) {
+
+    *{
+        max-width: 411px;
+    }
+    .menu-geral{
+        max-width: 500px;
+        width: 500px;
+        justify-content: space-between;
+        margin-top: 0px;
+        margin-left: 0px;
+        padding-left: 0px;
+    }  
+    .titleMenu{
+
+    }
+    .titleInicial{
+        margin-bottom: 95px;
+        margin-left: -20px;
+    }
+
+    .inicio {
+        width: 312px;
+        height: 500px;
+        padding: auto;
+        margin-left: -8px;
+    }
+    
+    .inicio h1 {
+        font-size:30px;
+    }
+    
+    .apresentacao{
+        margin-top: 290px;
+        margin-right: 70px;
+        margin-left: -10px;
+    
+    }
+    .desenvolvido{
+        margin-left: 35px;
+    }
+    .nomes{
+        margin-left: 4px;
+    }
+    .titleApresentacao{
+        font-size: 30px;
+        margin-left: 20px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .ajusteMob{
+        margin-left: -150px;
+    }
+    .botao {
+        margin-top: 55px;
+        font-size: 15px;         
+        background-color: rgb(118, 95, 95);
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+    }
+    
+    .button1{
+        width: 180px;
+        height: 45px;
+        background-color: rgb(118, 95, 95);
+        border: 1px solid #fff;
+        border-radius: 20px;
+        margin-left: -220px;
+        margin-bottom: 85px;
+        display: inline;
+    }
+    
+    .button{
+        width: 80px;
+        height: 30px;
+        background-color: rgb(40, 5, 122);
+        color: rgb(255, 255, 255);
+        border-radius: 8px;
+        margin-right: 10px;
+        margin-top: -40px;
+        display: inline-block;
+        float: right;
+    }
+    
+    .img{
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+        margin-top: -110px;
+        float: right;
+    }
+    
+    .nome{
+        margin-left: 10px;
+    }
+    
+    .tempo{
+        margin-top: -15px;
+        margin-left: 10px;
+    }
+    
+    .temperatura{
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+
+    .titleAlimentos{
+        margin-bottom: 30px;
+        width: 370px;
+        border: 2px solid black;
+        margin-left: 12px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    .alimentos{
+        margin-top: 70px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    
+    .alimento1, .alimento2, .alimento3 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        border: 2px solid black;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+    .alimento4{
+        width: 100%;
+        height: auto;
+        margin-bottom: -51500px;
+        margin: 0 auto;
+        margin-top: 25px;
+    } 
+
+    .titleGrafico{
+        margin-bottom: 30px;
+        margin-left: 20px;
+        margin-top: -70px;
+        width: 370px;
+    }
+
+    .grafico{
+        float: right;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-left: 20px;
+        margin-bottom: 0px;
+    }
+    .scriptGrafico{
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    .descricaoGrafico{
+        margin-left: 5px;
+        margin-top: 0px;
+        padding-top: 0px;
+        margin-right: 10px;
+        margin-bottom: 80px;
+        text-align: justify;
+    }
+}
