@@ -64,7 +64,7 @@ function updateChart(data) {
 // Carregar e processar o arquivo CSV inicialmente
 loadCSVAndUpdateChart('dados.csv');
 
-// Atualizar o gráfico a cada 2 segundos
+// Atualizar o gráfico a cada 1 segundo
 setInterval(function() {
   loadCSVAndUpdateChart('dados.csv');
 }, 1000);

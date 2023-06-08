@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Pi-3</title>
 </head>
 <body>
@@ -44,7 +45,23 @@
               </p>
           </div>
       </section>
-      
+      <script>
+        $(document).ready(function() {
+          setInterval(function() {
+            $.ajax({
+              url: '/',
+              type: 'GET',
+              success: function(data) {
+                $('#rele-status').text(data.rele);
+                $('#sensor1-temp').text(data.sensor1_temp);
+              },
+              error: function() {
+                console.log('Erro ao obter os dados do servidor');
+              }
+            });
+          }, 1000); 
+        });
+      </script>
       <section class="alimentos" id="alimentos">
           <h1 class="titleAlimentos">Alimentos</h1>
           <div class="alimento1">
@@ -52,28 +69,28 @@
               <h4 class="temperatura">Temperatura: 85°C</h4>
               <h4 class="tempo">Tempo: 15-20 min</h4>
               <img class="img" src="../img/milho.jfif" />
-              <button class="button">Ver</button>
+              <button href="/button0/on" class="button">Ver</button>
           </div>
           <div class="alimento2">
               <h2 class="nome">Brócolis</h2>
               <h4 class="temperatura">Temperatura: 85°C</h4>
               <h4 class="tempo">Tempo: 15-20 min</h4>
               <img class="img" src="../img/brocolis.jfif" />
-              <button class="button">Ver</button>
+              <button href="/button1/on" class="button">Ver</button>
           </div>
           <div class="alimento3">
               <h2 class="nome">Abóbora</h2>
               <h4 class="temperatura">Temperatura: 85°C</h4>
               <h4 class="tempo">Tempo: 30 min</h4>
               <img class="img" src="../img/abobora.jfif" />
-              <button class="button">Ver</button>
+              <button href="/button2/on" class="button">Ver</button>
           </div>
           <div class="alimento4">
               <h2 class="nome">Pêssego</h2>
               <h4 class="temperatura">Temperatura: 85°C</h4>
               <h4 class="tempo">Tempo: 15-20 min</h4>
               <img class="img" src="../img/pessego.jfif" />
-              <button class="button">Ver</button>
+              <button href="/button3/on" class="button" >Ver</button>
           </div>
       </section>
       <section class="grafico">
