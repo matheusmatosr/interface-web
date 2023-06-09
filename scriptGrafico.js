@@ -42,6 +42,7 @@ function updateChart(data) {
     chart = new Chart(ctx, {
       type: 'line',
       data: {
+        label: [10, 20, 30, 40, 50, 60, 70, 80],
         datasets: [{
           label: 'Valores',
           data: data,

@@ -120,9 +120,10 @@ header{
 }
 .alimentos{
     margin-top: 70px;
+    margin-bottom: 100px;
 }
 .alimento1{
-    margin-top: 25px;
+    margin-top: 50px;
     border: 2px solid black;
     border-radius: 20px;
     width: 550px;
@@ -148,16 +149,7 @@ header{
     margin-left: 100px;
     background-color: white;
 }
-.alimento4{
-    margin-top: 25px;
-    margin-bottom: 50px;
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 550px;
-    height: 130px;
-    margin-left: 100px;
-    background-color: white;
-}
+
 .rodape {
     background-color: black;
     color: #fff;
@@ -186,7 +178,7 @@ header{
 }
 .grafico{
     float: right;
-    margin-top: -795px;
+    margin-top: -707px;
     margin-right: 60px;
 }
 .telaGraficos{
@@ -242,6 +234,7 @@ header{
     border-radius: 12px;
     width: 660px;
     margin-left: 0px;
+    margin-bottom: 50px;
 }
 .descricaoGrafico h2{
     text-align: center;
@@ -271,9 +264,7 @@ header{
         margin-left: 0px;
         padding-left: 0px;
     }  
-    .titleMenu{
-
-    }
+    
     .titleInicial{
         margin-bottom: 95px;
         margin-left: -20px;
@@ -417,6 +408,7 @@ header{
     .scriptGrafico{
         margin-bottom: 0px;
         padding-bottom: 0px;
+        margin-top: 0px;
     }
     .descricaoGrafico{
         margin-left: 5px;
