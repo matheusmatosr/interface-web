@@ -1,13 +1,10 @@
 import os
 import glob
 import time
+import csv
 import mysql.connector
 from mysql.connector import errorcode
 import requests
-
-from flask import Flask, jsonify, render_template
-
-cmd = ['python', 'site.py']
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -52,7 +49,6 @@ def read_temp():
     if equals_pos != -1:
         temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
-        temp_f = temp_c * 9.0 / 5.0 + 32.0
 
         return temp_c
     
@@ -65,22 +61,8 @@ def read_temp1():
     if equals_pos1 != -1:
         temp_string1 = lines1[1][equals_pos1+2:]
         temp_c1 = float(temp_string1) / 1000.0
-        temp_f1 = temp_c1 * 9.0 / 5.0 + 32.0
         
         return temp_c1 
-
-app = Flask(__name__)
-@app.route('/dados', methods=['GET', 'POST'])
-
-def get_dados(): 
-    dados = {}
-    temp_c = read_temp()
-    temp_c1 = read_temp1()
-
-    dados['temperatura_1'] = temp_c
-    dados['temperatura_2'] = temp_c1
-
-    return render_template('index.html', jsonify(dados))
 
 # Configurar a conexão com o banco de dados
 connection = {
@@ -91,32 +73,42 @@ connection = {
 }
 
 while True:
-    c1, f1 = read_temp()
-    c2, f2 = read_temp1()
-    print(f' C1={c1:.3f}  F1={f1:.3f}')
-    print(f' C2={c2:.3f}  F2={f2:.3f}')
+    c1 = read_temp()
+    c2 = read_temp1()
     
     try:
         conn = mysql.connector.connect(**connection)
-        print("Connection estabelecida")
-
+        
         with conn.cursor() as cursor:
             # criar tabela se não existir
-            table_name = 'tabela_sensores'  
-            create_table_query = f"CREATE TABLE IF NOT EXISTS {table_name} (id INT AUTO_INCREMENT PRIMARY KEY, temperatura_c1 FLOAT, temperatura_f1 FLOAT, temperatura_c2 FLOAT, temperatura_f2 FLOAT, data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+            table_name = 'tabela_de_sensores'  
+            create_table_query = f"CREATE TABLE IF NOT EXISTS {table_name} (id INT AUTO_INCREMENT PRIMARY KEY, temperatura_c1 FLOAT, temperatura_c2 FLOAT, data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
             cursor.execute(create_table_query)
 
             # inserir dados na tabela
-            insert_query = "INSERT INTO tabela_sensores (temperatura_c1, temperatura_f1, temperatura_c2, temperatura_f2) VALUES (%s, %s, %s, %s)"
-            cursor.execute(insert_query, (c1, f1, c2, f2))
+            insert_query = "INSERT INTO tabela_de_sensores (temperatura_c1, temperatura_c2) VALUES (%s, %s)"
+            cursor.execute(insert_query, (c1, c2,))
             conn.commit()
             
              # exibir dados da tabela
-            select_query = "SELECT * FROM tabela_sensores ORDER BY id DESC LIMIT 1"
+            select_query = "SELECT * FROM tabela_de_sensores ORDER BY id DESC LIMIT 1"
             cursor.execute(select_query)
             rows = cursor.fetchall()
-            for row in rows:
-                print(row)
+
+            # Executar uma consulta SQL
+            query = "SELECT * FROM tabela_de_sensores"
+            cursor.execute(query)
+
+            # Recuperar os resultados da consulta
+            rows = cursor.fetchall()
+
+            # Nome do arquivo para salvar os dados
+            filename = 'dados.csv'
+
+            # Salvar os dados em um arquivo CSV
+            with open(filename, 'w', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerows(rows)
 
     except mysql.connector.Error as error:
         print("Erro ao se conectar ao MySql:", error)
@@ -125,6 +117,5 @@ while True:
         if (conn.is_connected()):
             cursor.close()
             conn.close()
-            print("Connection finalizada")   
-        
-    time.sleep(4)
+           
+        time.sleep(3)
