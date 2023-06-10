@@ -10,24 +10,27 @@ function loadCSVAndUpdateChart(file) {
   xhr.send();
 }
 
-// Processar o arquivo CSV e atualizar o gráfico
 function processCSVAndUpdateChart(csvData) {
   var lines = csvData.split('\n');
-  var data = [];
+  var data1 = []; // Dados do Sensor 1
+  var data2 = []; // Dados do Sensor 2
 
   for (var i = 0; i < lines.length; i++) {
     var values = lines[i].split(',');
+    // var x = (i + 1) * 10;
     var x = parseFloat(values[1]);
-    var y = parseFloat(values[2]);
-    data.push({ x: x, y: y });
+    var y1 = parseFloat(values[1]); // Valor do Sensor 1
+    var y2 = parseFloat(values[2]); // Valor do Sensor 2
+    data1.push({ x: x, y: y1 });
+    data2.push({ x: x, y: y2 });
   }
 
   // Atualizar o gráfico com os dados
-  updateChart(data);
+  updateChart(data1, data2);
 }
 
 // Atualizar o gráfico com os dados
-function updateChart(data) {
+function updateChart(data1, data2) {
   var ctx = document.getElementById('myChart').getContext('2d');
 
   // Verificar se o gráfico já foi inicializado
@@ -35,18 +38,23 @@ function updateChart(data) {
 
   if (chart) {
     // Atualizar os dados do gráfico existente
-    chart.data.datasets[0].data = data;
+    chart.data.datasets[0].data = data1;
+    chart.data.datasets[1].data = data2;
     chart.update();
   } else {
     // Configurar o gráfico pela primeira vez
     chart = new Chart(ctx, {
       type: 'line',
       data: {
-        label: [10, 20, 30, 40, 50, 60, 70, 80],
         datasets: [{
-          label: 'Valores',
-          data: data,
+          label: 'Sensor 1',
+          data: data1,
           borderColor: 'blue',
+          fill: false
+        }, {
+          label: 'Sensor 2',
+          data: data2,
+          borderColor: 'red',
           fill: false
         }]
       },
@@ -54,7 +62,27 @@ function updateChart(data) {
         scales: {
           x: {
             type: 'linear',
-            position: 'bottom'
+            position: 'bottom',
+            ticks: {
+              min: 10,
+              max: 100,
+              stepSize: 10,
+              callback: function(value) {
+                return value.toString();
+              }
+            }
+          },
+          y: {
+            type: 'linear',
+            position: 'left',
+            ticks: {
+              min: 10,
+              max: 100,
+              stepSize: 10,
+              callback: function(value) {
+                return value.toString();
+              }
+            }            
           }
         }
       }
@@ -69,3 +97,8 @@ loadCSVAndUpdateChart('../dados.csv');
 setInterval(function() {
   loadCSVAndUpdateChart('../dados.csv');
 }, 1000);
+
+
+
+
+// var x = (i + 1) * 10;
