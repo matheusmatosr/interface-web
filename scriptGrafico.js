@@ -17,7 +17,6 @@ function processCSVAndUpdateChart(csvData) {
 
   for (var i = 0; i < lines.length; i++) {
     var values = lines[i].split(',');
-    // var x = (i + 1) * 10;
     var x = parseFloat(values[1]);
     var y1 = parseFloat(values[1]); // Valor do Sensor 1
     var y2 = parseFloat(values[2]); // Valor do Sensor 2
@@ -46,6 +45,7 @@ function updateChart(data1, data2) {
     chart = new Chart(ctx, {
       type: 'line',
       data: {
+        labels: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
         datasets: [{
           label: 'Sensor 1',
           data: data1,
@@ -60,18 +60,6 @@ function updateChart(data1, data2) {
       },
       options: {
         scales: {
-          x: {
-            type: 'linear',
-            position: 'bottom',
-            ticks: {
-              min: 10,
-              max: 100,
-              stepSize: 10,
-              callback: function(value) {
-                return value.toString();
-              }
-            }
-          },
           y: {
             type: 'linear',
             position: 'left',
@@ -97,8 +85,3 @@ loadCSVAndUpdateChart('../dados.csv');
 setInterval(function() {
   loadCSVAndUpdateChart('../dados.csv');
 }, 1000);
-
-
-
-
-// var x = (i + 1) * 10;
