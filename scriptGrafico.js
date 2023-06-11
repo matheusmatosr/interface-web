@@ -60,12 +60,12 @@ function updateChart(data1, data2) {
       options: {
         scales: {
           y: {
-              min: 0,
-              max: 100,
-              ticks: {
-                stepSize: 10
-              }
-          }
+            min: 0,
+            max: 100,
+            ticks: {
+              stepSize: 10
+            }
+          },
         }
       }
     });
@@ -78,6 +78,4 @@ loadCSVAndUpdateChart('../dados.csv');
 // Atualizar o gráfico a cada 1 segundo
 setInterval(function() {
   loadCSVAndUpdateChart('../dados.csv');
-  console.log(data1);
-  console.log(data2);
 }, 1000);
