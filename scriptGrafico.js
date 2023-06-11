@@ -100,7 +100,7 @@ function updateChart(data1, data2, labels) {
 // Carregar e processar o arquivo CSV inicialmente
 loadCSVAndUpdateChart('../dados.csv');
 
-// Atualizar o gráfico a cada 1 segundo
+// Atualizar o gráfico a cada meio segundo
 setInterval(function() {
   loadCSVAndUpdateChart('../dados.csv');
-}, 1000);
+}, 500);
