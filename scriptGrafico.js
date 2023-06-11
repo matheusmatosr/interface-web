@@ -23,7 +23,6 @@ function processCSVAndUpdateChart(csvData) {
     data1.push({ x: x, y: y1 });
     data2.push({ x: x, y: y2 });
   }
-
   // Atualizar o gráfico com os dados
   updateChart(data1, data2);
 }
@@ -61,16 +60,11 @@ function updateChart(data1, data2) {
       options: {
         scales: {
           y: {
-            type: 'linear',
-            position: 'left',
-            ticks: {
-              min: 10,
+              min: 0,
               max: 100,
-              stepSize: 10,
-              callback: function(value) {
-                return value.toString();
+              ticks: {
+                stepSize: 10
               }
-            }            
           }
         }
       }
@@ -84,4 +78,6 @@ loadCSVAndUpdateChart('../dados.csv');
 // Atualizar o gráfico a cada 1 segundo
 setInterval(function() {
   loadCSVAndUpdateChart('../dados.csv');
+  console.log(data1);
+  console.log(data2);
 }, 1000);
